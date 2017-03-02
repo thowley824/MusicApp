@@ -59,7 +59,7 @@ namespace MusicApp2017.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AlbumID,Title,ArtistID,GenreID,Likes")] Album album)
-        {
+        { 
             if (ModelState.IsValid)
             {
                 _context.Add(album);
