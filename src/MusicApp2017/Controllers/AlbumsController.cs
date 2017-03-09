@@ -33,9 +33,10 @@ namespace MusicApp2017.Controllers
                 return NotFound();
             }
 
-            var album = await _context.Albums
+            var albumContext =  _context.Albums
                 .Include(a => a.Artist)
-                .Include(a => a.Genre)
+                .Include(a => a.Genre);
+            var album = await albumContext
                 .SingleOrDefaultAsync(m => m.AlbumID == id);
             if (album == null)
             {
